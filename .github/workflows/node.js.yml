@@ -17,14 +17,6 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - name: Install dependencies
-        run: |
-          if [ -e yarn.lock ]; then
-          yarn install --frozen-lockfile
-          elif [ -e package-lock.json ]; then
-          npm ci
-          else
-          npm i
-          fi
+      - run: npm ci
       - run: npm test
       - run: npm run build 
